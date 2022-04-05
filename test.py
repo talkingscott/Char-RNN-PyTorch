@@ -13,6 +13,7 @@ def test():
     op_seq_len = 1000   # total num of characters in output test sequence
     
     load_path = "./preTrained/CharRNN_shakespeare.pth"
+    load_path = "./preTrained/CharRNN_shakespeare_no_random_start.pth"
     data_path = "./data/shakespeare.txt"
     
 #    load_path = "./preTrained/CharRNN_sherlock.pth"

@@ -24,7 +24,7 @@ device = torch.device(device_type)
 
 class RNN(nn.Module):
     def __init__(self, input_size, output_size, hidden_size, num_layers,
-                 dropout):
+                 dropout=0):
         super(RNN, self).__init__()
         self.embedding = nn.Embedding(input_size, input_size)
         self.rnn = nn.LSTM(input_size=input_size, hidden_size=hidden_size,
@@ -48,7 +48,7 @@ def train():
     epochs = 100        # max number of epochs
     op_seq_len = 300    # total num of characters in output test sequence
     load_chk = False    # load weights from save_path to continue training
-    save_path = "./preTrained/CharRNN_shakespeare.pth"
+    save_path = "./preTrained/CharRNN_shakespeare_no_random_start.pth"
     data_path = "./data/shakespeare.txt"
     # -Hyperparameters
 
@@ -94,7 +94,8 @@ def train():
     for i_epoch in range(1, epochs+1):
 
         # random starting point (1st seq_len chars) from data to begin
-        data_ptr = np.random.randint(seq_len)
+        # data_ptr = np.random.randint(seq_len)
+        data_ptr = 0
         steps = 0
         running_loss = 0
         hidden_state = None
