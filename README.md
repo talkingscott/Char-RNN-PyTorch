@@ -2,13 +2,21 @@
 
 Minimalist code for character-level language modelling using Multi-layer Recurrent Neural Networks (LSTM) in PyTorch. The RNN is trained to predict next letter in a given text sequence. The trained model can then be used to generate a new text sequence resembling the original data.
 
+Forked from https://github.com/nikhilbarhate99/Char-RNN-PyTorch
+
 ## Requirements
 
-Trained and tested on:
+Originally trained and tested on:
 
 - `Python 3.6`
 - `PyTorch 1.0`
 - `NumPy 1.16.3`
+
+Changes on fork tested with Anaconda installed:
+
+- `Python 3.8.5`
+- `PyTorch 1.7.1`
+- `NumPy 1.19.2`
 
 ## Usage
 
