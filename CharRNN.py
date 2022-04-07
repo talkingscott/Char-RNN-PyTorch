@@ -48,7 +48,7 @@ def train():
     epochs = 100        # max number of epochs
     op_seq_len = 300    # total num of characters in output test sequence
     load_chk = False    # load weights from save_path to continue training
-    save_path = "./preTrained/CharRNN_shakespeare_no_random_start.pth"
+    save_path = "./preTrained/CharRNN_shakespeare_junk.pth"
     data_path = "./data/shakespeare.txt"
     # -Hyperparameters
 
@@ -65,12 +65,10 @@ def train():
     ix_to_char = {i: ch for i, ch in enumerate(chars)}
 
     # convert data from chars to indices
-    data_list = [-1 for i in range(data_size)]
-    for i, ch in enumerate(data_str):
-        data_list[i] = char_to_ix[ch]
+    data_array = np.array([char_to_ix[ch] for ch in data_str], np.int64)
 
     # data tensor on device
-    data = torch.tensor(data_list).to(device)
+    data = torch.tensor(data_array).to(device)
     data = torch.unsqueeze(data, dim=1)
 
     # model instance
